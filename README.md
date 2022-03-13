@@ -6,7 +6,7 @@
 * See instructions [here](https://datacarpentry.org/geospatial-workshop/setup.html) to set up dependencies for `sf` package in R.
 * For spatial analysis tutorials, visit [this](https://ucmerced.github.io/2021-03-22-ucmerced/) page.
 
-## Set up spatial analysis programs 
+## :wrench: Set up spatial analysis programs 
 * Install R. 
 * Install RStudio. 
 * Install `sf` package in RStudio.
@@ -24,6 +24,10 @@ writeLines('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', con = "~/.Renviron")
 ```
 install.packages(c("dplyr", "ggplot2", "raster", "rgdal", "rasterVis", "sf"))
 ```
+
+## Download data 
+* Download spatial data for this training [here](https://ndownloader.figshare.com/articles/2009586/versions/10).
+* For an overview of the data, visit this [page](https://datacarpentry.org/geospatial-workshop/data/).
 
 ## :blue_book: Course Outline 
 1. [Introduction to Raster Data](https://datacarpentry.org/organization-geospatial/01-intro-raster-data/index.html)  
