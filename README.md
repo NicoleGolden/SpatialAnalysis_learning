@@ -25,7 +25,7 @@ writeLines('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', con = "~/.Renviron")
 install.packages(c("dplyr", "ggplot2", "raster", "rgdal", "rasterVis", "sf"))
 ```
 
-## Download data 
+## :arrow_down: Download data 
 * Download spatial data for this training [here](https://ndownloader.figshare.com/articles/2009586/versions/10).
 * For an overview of the data, visit this [page](https://datacarpentry.org/geospatial-workshop/data/).
 
