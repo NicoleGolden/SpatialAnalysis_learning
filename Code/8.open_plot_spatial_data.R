@@ -1,0 +1,117 @@
+
+# load spatial packages
+library(sf)
+library(raster)
+library(rgdal)
+library(ggplot2)
+
+# set working directory
+setwd("/Users/nicolegolden/Documents/1. Data Science/*GitHub/SpatialAnalysis_learning/Code/")
+
+# ----------------------------------- Example 1:
+# vector data: shape files 
+# boundary of area of interest (AOI): polygon extent
+
+
+
+######################################
+###       1. Load Shape Files      ###
+######################################
+
+# load data: st_read() 
+# it automatically shows info about the data
+aoi_boundary_HARV <- st_read(
+  "/Users/nicolegolden/Documents/1. Data Science/*GitHub/SpatialAnalysis_learning/Data/NEON-DS-Site-Layout-Files/HARV/HarClip_UTMZ18.shp")
+
+# data type: st_geometry_type()
+# POLYGON
+st_geometry_type(aoi_boundary_HARV)
+
+# check crs data: st_crs()
+st_crs(aoi_boundary_HARV)
+
+# check extent of AOI: st_bbox()
+# xmin      ymin       xmax      ymax 
+# 732128.0  4713208.7  732251.1  4713359.2 
+st_bbox(aoi_boundary_HARV)
+
+# see all data 
+# 1 observation, 2 variables
+# "id" = 1
+# "geometry": a list of element
+#             732128 732251 732251 732128 732128
+aoi_boundary_HARV
+
+
+
+######################################
+###       2. Plot Shape Files      ###
+######################################
+
+# plot shape file 
+ggplot() + 
+  geom_sf(data = aoi_boundary_HARV, 
+          size = 1, 
+          color = "black", 
+          fill = "#3B3131") + 
+  ggtitle("Polygon extent Plot") + 
+  coord_sf()
+
+
+
+# ----------------------------------- Example 2: 
+# vector data: shape files 
+# area of interest (AOI): lines extent
+
+# load data 
+lines_HARV <- st_read(
+  "/Users/nicolegolden/Documents/1. Data Science/*GitHub/SpatialAnalysis_learning/Data/NEON-DS-Site-Layout-Files/HARV/HARV_roads.shp")
+
+# data type 
+# lines extent (MULTILINESTRING) 
+st_geometry_type(lines_HARV)
+
+# check crs data 
+st_crs(lines_HARV)
+
+# see extent of AOI
+st_bbox(lines_HARV)
+
+# plot shape file 
+ggplot() + 
+  geom_sf(data = lines_HARV, 
+          size = 1, 
+          color = "black") + 
+  ggtitle("Line extent Plot") + 
+  coord_sf()
+
+
+
+# ----------------------------------- Example 3: 
+# vector data: shape files 
+# area of interest (AOI): points extent
+
+# load data 
+point_HARV <- st_read(
+  "/Users/nicolegolden/Documents/1. Data Science/*GitHub/SpatialAnalysis_learning/Data/NEON-DS-Site-Layout-Files/HARV/HARVtower_UTM18N.shp")
+
+# data type 
+# points extent
+st_geometry_type(point_HARV)
+
+# check crs data 
+st_crs(point_HARV)
+
+# see extent of AOI
+st_bbox(point_HARV)
+
+# plot shape file 
+ggplot() + 
+  geom_sf(data = point_HARV, 
+          size = 2, 
+          color = "black") + 
+  ggtitle("Line extent Plot") + 
+  coord_sf()
+
+
+
